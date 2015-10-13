@@ -1,0 +1,52 @@
+html {
+   font-family: 'Josefin Slab', serif;
+}
+
+#name {
+    position: relative;
+    float: left;
+    width: 200px;
+}
+
+.h_wrapper {
+
+    position: relative;
+}
+
+.h_toolbar {
+    font-color: white;
+    height: 50px;
+    width: 100%;
+    background-color: black;
+}
+
+.h_list {
+    position: relative;
+    float: right;
+    width: 400px;
+    list-style: none;
+    text-decoration: none;
+    height: 40px;
+
+}
+
+.h_item {
+    padding: 10px;
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+    border: 2px solid white;
+    margin: 0 2px;
+}
+
+.h_item > a {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.h_item a:hover {
+  color: #000;
+  background: #fff;
+  text-decoration: none;
+}

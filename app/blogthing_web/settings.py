@@ -14,7 +14,17 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 APP_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'app'))
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BLOGTHING_DIR = os.path.join(APP_DIR, 'blogthing_web')
+
+TEMPLATE_DIR = os.path.join(BLOGTHING_DIR, 'templates')
+
+STATIC_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static'))
+FONTS_DIR = os.path.abspath(os.path.join(STATIC_DIR, 'fonts'))
+FAVICON = os.path.abspath(os.path.join(STATIC_DIR, 'favicon.ico'))
+JS_DIR = os.path.abspath(os.path.join(STATIC_DIR, 'js'))
+CSS_DIR = os.path.abspath(os.path.join(STATIC_DIR, 'css'))
+SCSS_DIR = os.path.abspath(os.path.join(STATIC_DIR, 'scss'))
+IMG_DIR = os.path.abspath(os.path.join(STATIC_DIR, 'img'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -51,12 +61,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'blogthing.urls'
+ROOT_URLCONF = 'blogthing_web.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,7 +79,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'blogthing.wsgi.application'
+WSGI_APPLICATION = 'blogthing_web.wsgi.application'
 
 
 # Database
@@ -78,7 +88,7 @@ WSGI_APPLICATION = 'blogthing.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(APP_DIR, 'db.sqlite3'),
     }
 }
 
@@ -101,3 +111,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = 'staticfiles'
+
+STATICFILES_DIRS = (
+    os.path.join(APP_DIR, 'static'),
+)

@@ -17,5 +17,6 @@ from django.conf.urls import include, url, patterns
 from django.contrib import admin
 
 urlpatterns = patterns("",
-    url(r'^b/(?P<key>.*)', 'blogthing.views.blog'),
+    url(r'^$', 'blogthing_web.views.home'),
+    url(r'^b/(?P<key>.*)', 'blogthing_web.views.blog'),
 )
